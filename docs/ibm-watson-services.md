@@ -1,11 +1,11 @@
 # IBM Watson services
-<h3>1. AlchemyLanguage</h3> 
+1. <h3>AlchemyLanguage</h3> 
   * used to analyse text, pdf, etc. to extract keywords, titles, names, companies etc.
   * https://www.ibm.com/watson/developercloud/alchemy-language.html
-<h3>2. Conversation</h3> 
+2. <h3>Conversation</h3> 
   * used to build conversation between bot and an end user 
   * https://www.ibm.com/watson/developercloud/conversation.html
-<h3>3. Natural Language Classifier</h3> 
+3. <h3>Natural Language Classifier</h3> 
   * categories different text based on a training set that is manually entered in the system
   * https://www.ibm.com/watson/developercloud/nl-classifier.html
 4. <h3>Personal Insights</h3>
