@@ -1,0 +1,34 @@
+{
+  "name": "etech-project",
+  "description": "A virtual learning companion build in Node.js and used for helping early staged students with thier education",
+  "version": "0.1.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masoncusack/emergingtechcomp"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "dotenv": "^2.0.0",
+    "watson-developer-cloud": "^2.8.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "casperjs": "^1.1.3",
+    "codecov": "^1.0.1",
+    "eslint": "^2.8.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.13",
+    "supertest": "^1.2.0"
+  },
+  "engine": {
+    "node": ">= 6.9.x",
+    "npm": "> 3.10.x"
+  }
+}
