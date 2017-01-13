@@ -1,4 +1,4 @@
-# Etech virtual companion
+# Etech project setup
 ##Starting the project
 
 1. Log in to the linux instance `ssh etech`
@@ -20,13 +20,13 @@
 
 ###Email details
 
-Email: etech_team@hotmail.com
-Password: etechteam2016
+- Email: etech_team@hotmail.com
+- Password: etechteam2016
 
 ###IBM Bluemix details
 
-Email: etech_team@hotmail.com
-Password: Etech_team_2016
+- Email: etech_team@hotmail.com
+- Password: Etech_team_2016
 
 ##Helper links
 
