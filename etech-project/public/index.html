@@ -1,30 +1,165 @@
-<html>
-<head>
-  <base href="/">
-  <title>Etech virtual companion</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta property="og:title" content="Virtual Learning Companion" />
-  <meta property="og:description" content="A virtual learning companion build in Node.js and used for helping early staged students with thier education" />
-  <link rel="stylesheet" href="css/app.css">
-</head>
-<body>
-  <div id="contentParent" class="responsive-columns-wrapper">
-    <div id="chat-column-holder" class="responsive-column content-column">
-      <div class="chat-column">
-        <div id="scrollingChat"></div>
-        <label for="textInput" class="inputOutline">
-          <input id="textInput" class="input responsive-column"
-            placeholder="Type something" type="text"
-            onkeydown="ConversationPanel.inputKeyDown(event, this)">
-        </label>
-      </div>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-  <script src="js/common.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/conversation.js"></script>
-  <script src="js/global.js"></script>
-</body>
+    <title>Theme Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/lib/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/lib/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+    <!-- Chatbot style -->
+    <link rel="stylesheet" href="css/app.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <!-- Fixed navbar -->
+
+  <nav class="navbar-fixed-top">
+    <div class="container">
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav nav-pills" role="tablist">
+          <li role="presentation" class="active"><a href="#">Classroom <span class="badge">42</span></a></li>
+          <li role="presentation"><a href="#">Alerts <span class="badge">3</span></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <body>
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="col-sm-4">
+        <div class="panel panel-default" id="talk-to-me-panel">
+          <div class="panel-heading">
+            <h4>Talk to me!</h4>
+          </div>
+          <div class="panel-body">
+            Use the following commands to try talking to ____
+              <ul class="list-group">
+                <li class="list-group-item">Hello!</li>
+                <li class="list-group-item">What is your name?</li>
+                <li class="list-group-item">How am I progressing?</li>
+                <li class="list-group-item">Show me a performance summary.</li>
+                <li class="list-group-item">What can you do?</li>
+              </ul>
+            <button type="button" class="btn btn-primary">See more</button>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Next Lesson:</h4>
+          </div>
+          <div class="panel-body">
+            Introduction to limits, Khan Academy
+            <br>
+
+            <iframe width=100% height="200px" src="https://www.youtube.com/embed/riXcZT2ICjA" frameborder="0" allowfullscreen></iframe>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div id="contentParent" class="responsive-columns-wrapper">
+          <div id="chat-column-holder" class="responsive-column content-column">
+            <div class="chat-column">
+              <div id="scrollingChat"></div>
+              <label for="textInput" class="inputOutline">
+                <input id="textInput" class="input responsive-column"
+                  placeholder="Type something" type="text"
+                  onkeydown="ConversationPanel.inputKeyDown(event, this)">
+              </label>
+            </div>
+          </div>
+        </div>
+        <p>Try asking: <i>What are my courses?</i> or <i>What are my latest grades?</i></p>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Your report card:</h4>
+          </div>
+          <div class="panel-body">
+            <img src="assets/img/man.png" style="width:70px;height:70px;" class="img-thumbnail" alt="Your profile photo.">
+            Mason Cusack
+            <!-- Progress bar here -->
+
+            <div class="panel"></div>
+
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
+              <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
+              <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
+            </div>
+
+            <div class="right">
+              <button type="button" class="btn btn-primary">View profile</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Achievements</h4>
+          </div>
+          <div class="panel-body">
+            <div class="list-group">
+              <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">Your 100th lesson!</h4>
+                <p class="list-group-item-text">Collect a reward from the ____ team.</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Completed Science Test 4!</h4>
+                <p class="list-group-item-text">Now go for test 5 to finish your course and earn XP!</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Levelled up!</h4>
+                <p class="list-group-item-text">You're now "studious". Click to see unlocks and claim a reward.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+      </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/lib/jquery.min.js"><\/script>')</script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/lib/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/conversation.js"></script>
+    <script src="js/global.js"></script>
+  </body>
 </html>
