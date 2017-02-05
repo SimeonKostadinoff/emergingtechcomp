@@ -1,0 +1,11 @@
+{
+	"lessons": [
+		{
+			"curriculum": "ks3",
+			"subject": "maths",
+			"topic": 0,
+			"name": "Formulae",
+			"description": "Sometimes one value can be expressed as an expression of another value – these are called algebraic formulae."
+		}
+	]
+}

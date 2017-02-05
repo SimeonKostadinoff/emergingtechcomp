@@ -1,0 +1,22 @@
+{
+	"topics": [
+		{
+			"curriculum": "ks3",
+			"subject": "maths",
+			"id": 0,
+			"name": "Algebra"
+		},
+		{
+			"curriculum": "ks3",
+			"subject": "maths",
+			"id": 1,
+			"name": "Shape, Space and Measures"
+		},
+		{
+			"curriculum": "ks3",
+			"subject": "maths",
+			"id": 2,
+			"name": "Numbers"
+		}
+	]
+}
