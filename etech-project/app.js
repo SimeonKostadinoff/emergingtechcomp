@@ -18,7 +18,6 @@
 
 var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
-var jsonfile = require('jsonfile'); //json file parser
 var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
 var workspace_id = '7cd1a60c-15c8-4cda-bf69-fa310c68b10a';
 var username = '89b7a029-e42c-4fa2-b292-329cb1301656';
@@ -67,14 +66,6 @@ app.post('/api/message', function (req, res)
 			return res.status(err.code || 500).json(err);
 		}
 		return res.json(updateMessage(payload, data));
-	});
-});
-
-app.get('/lessons', function (req, res)
-{
-	var lessons = jsonfile.readFile('lessons/curricula.json', function (err, obj)
-	{
-		console.log(obj);
 	});
 });
 

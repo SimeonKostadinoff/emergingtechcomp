@@ -16,11 +16,21 @@
  */
 
 'use strict';
+delete process.env["DEBUG_FD"]; //to stop IntelliJ from moaning
 
 var server = require('./app');
+var assert = require("assert");
+var mongo = require('mongodb').MongoClient;
 var port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
 
-server.listen(port, function() {
-  // eslint-disable-next-line
-  console.log('Server running on port: %d', port);
+server.listen(port, function ()
+{
+	// eslint-disable-next-line
+	console.log('Server running on port: %d', port);
+	mongo.connect('mongodb://etech_team:etechteam2016@ds035059.mlab.com:35059/etechproject', function (err, db)
+	{
+		assert.equal(null, err);
+		console.log('Connected to database');
+		db.close();
+	})
 });
