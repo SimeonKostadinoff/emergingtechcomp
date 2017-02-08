@@ -132,7 +132,11 @@ function setupInputBox() {
       }
 
       messageDivs.forEach(function(currentDiv) {
-        chatBoxElement.appendChild(currentDiv);
+        if(isUser){
+          chatBoxElement.appendChild(currentDiv);
+        }else{
+          eventOnResponse(newPayload, chatBoxElement, currentDiv);
+        }
         // Class to start fade in animation
         currentDiv.classList.add('load');
       });
@@ -188,6 +192,19 @@ function setupInputBox() {
     });
 
     return messageArray;
+  }
+
+  //Trigger client event when certain text received
+  function eventOnResponse(newPayload, chatBoxElement, currentDiv){
+    var watson_response = newPayload.output.text[0];
+    // check response and trigger event 
+    // if(something){
+    //   callfunction;
+    //   return;
+    // }
+    
+    chatBoxElement.appendChild(currentDiv);
+    
   }
 
   // Scroll to the bottom of the chat window (to the most recent messages)

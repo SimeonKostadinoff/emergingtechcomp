@@ -25,8 +25,8 @@
 
 ###IBM Bluemix details
 
-- Email: etech_team@hotmail.com
-- Password: Etech_team_2016
+- Email: itinnovation@contacts.bham.ac.uk
+- Password: Itinnov.1
 
 ##Helper links
 
