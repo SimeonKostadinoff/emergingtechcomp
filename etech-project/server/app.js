@@ -19,9 +19,9 @@
 var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
 var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
-var workspace_id = '64ec513d-dfca-403a-a0f9-d7f798059228'
-var username = 'c1155938-96e4-42c8-b58b-b644b0f36f10'
-var password = 'moHzLaV0fDuw'
+var workspace_id = '64ec513d-dfca-403a-a0f9-d7f798059228';
+var username = 'c1155938-96e4-42c8-b58b-b644b0f36f10';
+var password = 'moHzLaV0fDuw';
 
 var app = express();
 
