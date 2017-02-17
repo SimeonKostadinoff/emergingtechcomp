@@ -2,6 +2,11 @@ body {
   padding-top: 70px;
   padding-bottom: 30px;
   background-color: #00a5ff;
+
+  /*Previously disabled vertical scroll.
+  Problem is it ruins the mobile site.
+  margin: 0; height: 100%; overflow: hidden;
+  */
 }
 
 .theme-dropdown .dropdown-menu {
