@@ -1,5 +1,4 @@
 var mongoose = require('mongoose'),
-	curriculum = require('./model/curriculum'),
 	subject = require('./model/subject'),
 	topic = require('./model/topic');
 
@@ -23,7 +22,6 @@ module.exports = function ()
 		console.log('Database error: ' + err);
 	});
 
-	curriculum.initialCurricula();
 	subject.initialSubjects();
-	topic.initialTopics();
+	//topic.initialTopics();
 };
