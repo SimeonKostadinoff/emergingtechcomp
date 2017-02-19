@@ -198,12 +198,13 @@ function setupInputBox() {
   function eventOnResponse(newPayload, chatBoxElement, currentDiv){
     var watson_response = newPayload.output.text[0];
     // check response and trigger event 
-    // if(something){
-    //   callfunction;
-    //   return;
-    // }
-    
-    chatBoxElement.appendChild(currentDiv);
+    var result = UpdateUI.result(watson_response);
+    if(result == 'No match'){
+      chatBoxElement.appendChild(currentDiv);
+    }else{
+      result();
+    }
+    //chatBoxElement.appendChild(currentDiv);
     
   }
 
