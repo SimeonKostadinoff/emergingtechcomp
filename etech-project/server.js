@@ -16,7 +16,6 @@
  */
 
 'use strict';
-delete process.env["DEBUG_FD"]; //to stop IntelliJ from moaning
 
 var server = require('./server/app');
 var mongoose = require('./server/mongoose')();

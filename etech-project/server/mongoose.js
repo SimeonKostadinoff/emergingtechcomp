@@ -22,6 +22,43 @@ module.exports = function ()
 		console.log('Database error: ' + err);
 	});
 
-	subject.initialSubjects();
-	//topic.initialTopics();
+	subject.Subject.find({}).exec(function (err, collection)
+	{
+		if(err)
+		{
+			console.log(err);
+			return;
+		}
+		if(collection.length < 1)
+		{
+			subject.Subject.create({
+				name: "Mathematics",
+				qualification: "GCSE",
+				description: "Lessons that cover the contents of GCSE Mathematics."
+			}, function (err, subject)
+			{
+				if(err)
+				{
+					console.log("Failed to create subject! " + err);
+					return;
+				}
+				console.log("Subject " + subject.id + " created");
+				topic.Topic.create({
+					name: "Number",
+					subject: subject.id,
+					description: "A topic that is all about numbers."
+				}, function (err, topic)
+				{
+					if(err)
+					{
+						console.log(err);
+						return;
+					}
+					console.log("Topic " + topic.id + " created");
+					subject.topics.push(topic);
+					subject.save();
+				})
+			})
+		}
+	})
 };

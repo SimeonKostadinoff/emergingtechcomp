@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
 	experience: Number,
 	achievements: [{type: ObjectId, ref: 'Achievement'}],
 	recentQueries: [String],
-	lessonsCompleted: [{type: ObjectId, ref: 'Lesson'}]
+	lessons: [{type: ObjectId, ref: 'Lesson'}]
 });
 
 var User = mongoose.model('User', userSchema);
