@@ -33,7 +33,7 @@ module.exports.initialUser = function ()
 				firstName: 'John',
 				lastName: 'Smith',
 				salt: 'RY7+*U>-47FG{>y?9:&3p',
-				hash: '24cacf5004bf68ae9daad19a5bba391d85ad1cb0b31366e89aec86fad0ab16cb',
+				hash: 'f9ea6f8b08aa2e5df67343b9793bc5c5c27d408f06be5671e7ff6358b83409bc',
 				level: 0,
 				experience: 0
 			});

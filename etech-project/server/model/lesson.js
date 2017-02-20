@@ -4,7 +4,6 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 var lessonSchema = mongoose.Schema({
 	name: String,
 	topic: {type: ObjectId, ref: 'Topic'},
-	description: String,
 	experience: Number,
 	sections: [{
 		header: String,
@@ -16,4 +15,4 @@ var lessonSchema = mongoose.Schema({
 	}]
 });
 
-var Lesson = mongoose.model('Lesson', lessonSchema);
+module.exports.Lesson = mongoose.model('Lesson', lessonSchema);
