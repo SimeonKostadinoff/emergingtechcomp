@@ -135,6 +135,12 @@
           var profModal = document.getElementById('profModal');
           var lessonModal = document.getElementById('lessonModal');
           var lessonSession = document.getElementById('lessonSession');
+          var lessonSession = document.getElementById('commandModal');
+          var lessonSession = document.getElementById('achieveModal');
+
+          //audio
+          var intro = new Audio("assets/audio/ignisintro.mp3");
+
 
 
           // Get the button that opens the modal
@@ -189,15 +195,54 @@
           <div class="panel-body">
             Use the following commands to try talking to Ignis:
               <ul class="list-group">
-                <li class="list-group-item">Hello!</li>
-                <li class="list-group-item">What is your name?</li>
-                <li class="list-group-item">How am I progressing?</li>
-                <li class="list-group-item">Show me a performance summary.</li>
-                <li class="list-group-item">What can you do?</li>
+                <li class="list-group-item"><h5>Hello!</h5></li>
+                <li class="list-group-item"><h5>How am I progressing?</h5></li>
+                <li class="list-group-item"><h5>What can you do?</h5></li>
               </ul>
-            <button type="button" class="btn btn-primary">See more</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commandModal" onclick="document.getElementById('introSound').play();">See more</button>
           </div>
         </div>
+
+          <!-- Command Modal -->
+          <div id="commandModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Talking to Ignis</h4>
+                          <br>
+                          <p>Ignis is a listening, learning, AI-driven virtual tutor, created to guide users of all ages through a new
+                          kind of learning experience, growing with and adapting to them and their individual needs throughout
+                              their lives. She is powered by IBM Watson cognitive services.</p>
+                          <p>Perhaps one day, Ignis will offer qualifications and courses taught in partnership with humans,
+                              and organisations such as internet.org, to provide social equalisation and genuine, personalised education, anywhere.</p>
+                          <p>Below are some commands you can use to experiment with Ignis's speech recognition and
+                          conversational capabilities.</p>
+                      </div>
+                      <div class="modal-body">
+
+                          <p>Some kind of table here. Command, and result for the user.</p>
+
+                          <!-- Intro audio track can play when this opens -->
+                          <audio src="assets/audio/ignisintro.mp3" id="introSound">
+
+                      </div>
+
+                      <div class="modal-body">
+                          <!--Stuff here-->
+
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="document.getElementById('introSound').pause();
+                          document.getElementById('introSound').currentTime=0;">Close</button>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>Next Lesson:</h4>
@@ -208,14 +253,10 @@
             Introduction to limits, Khan Academy
             <br>
 
-            <iframe width=100% height="100%" src="https://www.youtube.com/embed/riXcZT2ICjA" frameborder="0" allowfullscreen></iframe>
+            <iframe width=100% height="200px" src="https://www.youtube.com/embed/riXcZT2ICjA" frameborder="0" allowfullscreen></iframe>
 
           </div>
         </div>
-      </div>
-
-      <div class="col-sm-4">
-        <!--AI animation go here-->
       </div>
 
         <!-- Lessons Modal -->
@@ -240,7 +281,8 @@
 
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lessonSession">Begin lesson</button>
 
-                        <br><br><p><b>Suggested lessons:</b></p>
+                        <br><h3> Suggested lessons: </h3>
+
 
                         <div class="container">
                             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -260,7 +302,7 @@
                                     <div class="item">
                                         <iframe width="100%" height="345" src="https://www.youtube.com/embed/HtSuA80QTyo?list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb" frameborder="0" allowfullscreen></iframe>
                                     </div>
-                                        <div class="item">
+                                    <div class="item">
                                         <iframe width="100%" height="345" src="https://www.youtube.com/embed/UzxYlbK2c7E" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                     <div class="item">
@@ -291,7 +333,7 @@
             </div>
         </div>
 
-        <!-- Lession session Modal -->
+        <!-- Lesson session Modal -->
         <div id="lessonSession" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
@@ -314,6 +356,12 @@
             </div>
         </div>
 
+      <div class="col-sm-4">
+
+          <img src="assets/img/logo3.png" width="265px" id="contentcenter">
+
+      </div>
+
 
       <div class="col-sm-4">
         <div class="panel panel-default">
@@ -327,11 +375,12 @@
 
                     <div class="panel"></div>
 
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-                      <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-                      <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
-                    </div>
+                      <div class="progress">
+                          <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
+                          <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
+                          <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
+                      </div>
+                      <p>Level 14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; Level 15</p>
 
                     <div class="right">
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profModal">View profile</button>
@@ -345,12 +394,10 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">My Profile</h4>
-                                    </div>
-                                    <div class="modal-body">
+                                        <br>
                                         <p>Welcome to your Ignis profile. This will evolve with you throughout your
-                                        lifelong studentship. Track your progress, look back at how far you've come,
-                                        and plot a path of where to go - and what to know - next.</p>
-
+                                            lifelong studentship. Track your progress, look back at how far you've come,
+                                            and plot a path of where to go - and what to know - next.</p>
                                     </div>
 
                                     <div class="modal-body">
@@ -359,11 +406,26 @@
                                             <img src="assets/img/man.png" style="width:140px;height:140px;" class="img-thumbnail" alt="Your profile photo.">
                                         </div>
                                         <p>Mason Cusack - Level 14 Scientist</p>
+                                        <p>| 14000 XP &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+                                            &emsp; &emsp; 15000 XP |</p>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
                                             <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
                                             <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
                                         </div>
+                                            <p>Level 14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+                                                &emsp; &emsp; Level 15</p>
+                                        <br>
+                                        <p>Earn more XP by completing lessons, courses, assessments, and achieving milestones, to unlock achievements!</p>
+                                        <h3> Recent achievements: </h3>
+
+                                                &emsp;
+                                                <a href="#"><img width="170px" src="assets/img/100th.png"></a>
+                                                &emsp;
+                                                <a href="#"><img width="170px" src="assets/img/testcomplete.png"></a>
+                                                &emsp;
+                                                <a href="#"><img width="170px" src="assets/img/levelup.png"></a>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -381,7 +443,8 @@
           <div class="panel panel-default">
               <div class="panel-heading">
                 <h4>Achievements</h4>
-                  </div>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#achieveModal">View all</button>
+              </div>
                   <div class="panel-body">
                     <div class="list-group">
                       <a href="#" class="list-group-item active">
