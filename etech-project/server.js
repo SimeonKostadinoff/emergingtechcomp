@@ -18,22 +18,33 @@
 'use strict';
 
 var app = require('./server/app'),
-	mongoose = require('./server/mongoose')(),
+	mongoose = require('./server/mongoose'),
 	port = process.env.PORT || process.env.VCAP_APP_PORT || 3000,
 	server = require('http').createServer(app),
 	io = require('socket.io')(server);
 
-io.on('connection', function (client)
-{
-	console.log("Client has connected");
-	client.on('userData', function ()
-	{
-		console.log("Sending user data");
-		client.emit('userData', mongoose.getUserData());
-	})
-});
-
 server.listen(port, function ()
 {
 	console.log('Server running on port: %d', port);
+	mongoose.init();
+
+	io.on('connection', function (client)
+	{
+		console.log('Client has connected');
+
+		client.on('userData', function ()
+		{
+			var user = require('mongoose').model('User');
+			user.findOne(function (err, data)
+			{
+				if (err)
+				{
+					console.log(err);
+					return;
+				}
+				client.emit('userData', data);
+			});
+			console.log('User data sent');
+		});
+	});
 });

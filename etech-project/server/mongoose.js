@@ -5,17 +5,7 @@ var mongoose = require('mongoose'),
 	user = require('./model/user'),
 	achievement = require('./model/achievement');
 
-module.exports.getUserData = function ()
-{
-	user.User.findOne(function (err, data)
-	{
-		if(err)
-			return {};
-		return data;
-	})
-};
-
-module.exports = function ()
+module.exports.init = function ()
 {
 	mongoose.connect('mongodb://etech_team:etechteam2016@ds035059.mlab.com:35059/etechproject');
 	var db = mongoose.connection;
