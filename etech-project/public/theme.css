@@ -22,3 +22,12 @@ body {
 .theme-showcase .navbar .container {
   width: auto;
 }
+#contentcenter{
+    margin-top:15%;
+    margin-left:13%;
+}
+
+#listen{
+    margin-left:25%;
+    color:white;
+}
