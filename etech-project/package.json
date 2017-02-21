@@ -17,7 +17,8 @@
     "express": "^4.14.0",
     "mongodb": "^2.2.22",
     "mongoose": "^4.8.2",
-    "watson-developer-cloud": "^2.8.1"
+    "watson-developer-cloud": "^2.8.1",
+	  "socket.io": "latest"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",

@@ -17,9 +17,21 @@
 
 'use strict';
 
-var server = require('./server/app');
-var mongoose = require('./server/mongoose')();
-var port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
+var app = require('./server/app'),
+	mongoose = require('./server/mongoose')(),
+	port = process.env.PORT || process.env.VCAP_APP_PORT || 3000,
+	server = require('http').createServer(app),
+	io = require('socket.io')(server);
+
+io.on('connection', function (client)
+{
+	console.log("Client has connected");
+	client.on('userData', function ()
+	{
+		console.log("Sending user data");
+		client.emit('userData', mongoose.getUserData());
+	})
+});
 
 server.listen(port, function ()
 {
