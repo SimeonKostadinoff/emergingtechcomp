@@ -112,6 +112,8 @@
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/app.css">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -401,6 +403,22 @@
 
           <img src="assets/img/logo3.png" width="265px" id="contentcenter">
 
+          <div id="contentParent" class="responsive-columns-wrapper">
+           <div id="chat-column-holder" class="responsive-column content-column">
+             <div class="chat-column">
+               <div id="scrollingChat"></div>
+               <label for="textInput" class="inputOutline">
+                 <input id="textInput" class="input responsive-column"
+                   placeholder="Type something" type="text"
+                   onkeydown="ConversationPanel.inputKeyDown(event, this)">
+               </label>
+             </div>
+           </div>
+         </div>
+         <p>Try asking: <i>Show me my lessons?</i> or <i>Show me my profile?</i></p>
+         <audio autoplay id="audio">
+              Your browser does not support the audio element.
+        </audio>
       </div>
 
 
@@ -509,6 +527,8 @@
 
           </div>
 
+          
+
 
 
     <!-- Bootstrap core JavaScript
@@ -519,10 +539,18 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script src="js/lib/socket.io.min.js"></script>
 
     <script src="js/socket.js"></script>
+
+    <script src="js/lib/ie10-viewport-bug-workaround.js"></script>
+ 
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/conversation.js"></script>
+    <script src="js/global.js"></script>
+
+    <script src="js/update_ui.js"></script>
     </div>
   </body>
 </html>

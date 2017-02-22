@@ -8,6 +8,7 @@ var Api = (function() {
   // Publicly accessible methods defined
   return {
     sendRequest: sendRequest,
+    speak: speak,
 
     // The request/response getters/setters are defined here to prevent internal methods
     // from calling the methods without any of the callbacks that are added elsewhere.
@@ -58,4 +59,30 @@ var Api = (function() {
     // Send request
     http.send(params);
   }
+
+  function speak(request){
+        var params = {
+            text: request,
+            voice: 'en-US_AllisonVoice',
+            accept: 'audio/wav'
+        }
+
+        var audio = document.getElementById('audio');
+        audio.setAttribute('src', '');
+        params = $.param(params);
+        fetch(`/api/synthesize?${params}`).then((response) => {
+            if (response.ok) {
+                response.blob().then((blob) => {
+                const url = window.URL.createObjectURL(blob);
+
+                audio.setAttribute('src', url);
+                audio.setAttribute('type', 'audio/ogg;codecs=opus');
+                });
+            } else {
+                response.json().then((json) => {
+                    console.log(json);
+                });
+            }
+        })
+    }
 }());

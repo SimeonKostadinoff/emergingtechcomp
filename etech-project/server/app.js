@@ -18,10 +18,13 @@
 
 var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
-var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
+var Conversation = require('watson-developer-cloud/conversation/v1'); // watson Conversation sdk
+var TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1'); // watson Text to speech sdk 
 var workspace_id = '64ec513d-dfca-403a-a0f9-d7f798059228';
-var username = 'c1155938-96e4-42c8-b58b-b644b0f36f10';
-var password = 'moHzLaV0fDuw';
+var username_conversation = 'c1155938-96e4-42c8-b58b-b644b0f36f10';
+var password_conversation = 'moHzLaV0fDuw';
+var username_textToSpeech = '650dc7a2-fa38-41f3-aed0-b52d9d30b8ed';
+var password_textToSpeech = 'iMYQ1pmVTs71';
 
 var app = express();
 
@@ -33,11 +36,24 @@ app.use(bodyParser.json());
 var conversation = new Conversation({
 	// If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
 	// After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-	username: username,
-	password: password,
+	username: username_conversation,
+	password: password_conversation,
 	url: 'https://gateway.watsonplatform.net/conversation/api',
 	version_date: '2017-01-03',
 	version: 'v1'
+});
+
+var textToSpeech = new TextToSpeechV1({
+  // If unspecified here, the TEXT_TO_SPEECH_USERNAME and
+  // TEXT_TO_SPEECH_PASSWORD env properties will be checked
+  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+  
+	username: username_textToSpeech,
+	password: password_textToSpeech,
+	url: 'https://stream.watsonplatform.net/text-to-speech/api',
+	headers: {
+    'X-Watson-Learning-Opt-Out': 'true'
+  }
 });
 
 // Endpoint to be call from the client side
@@ -67,6 +83,34 @@ app.post('/api/message', function (req, res)
 		}
 		return res.json(updateMessage(payload, data));
 	});
+});
+
+/**
+ * Pipe the synthesize method
+ */
+app.get('/api/synthesize', (req, res, next) => {
+  const transcript = textToSpeech.synthesize(req.query);
+  transcript.on('response', (response) => {
+    if (req.query.download) {
+      if (req.query.accept && req.query.accept === 'audio/wav') {
+        response.headers['content-disposition'] = 'attachment; filename=transcript.wav';
+      } else {
+        response.headers['content-disposition'] = 'attachment; filename=transcript.ogg';
+      }
+    }
+  });
+  transcript.on('error', next);
+  transcript.pipe(res);
+});
+
+// Return the list of voices
+app.get('/api/voices', (req, res, next) => {
+  textToSpeech.voices(null, (error, voices) => {
+    if (error) {
+      return next(error);
+    }
+    res.json(voices);
+  });
 });
 
 /**
