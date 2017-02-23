@@ -1,4 +1,6 @@
 body {
+    overflow-y: hidden; // hide vertical
+    overflow-x: hidden;
   padding-top: 70px;
   padding-bottom: 30px;
   background-color: #00a5ff;
@@ -24,10 +26,15 @@ body {
 }
 #contentcenter{
     margin-top:15%;
-    margin-left:13%;
+    margin-left:3%;
 }
 
 #listen{
     margin-left:25%;
     color:white;
+}
+
+#lessonbutton{
+    margin-top:2%;
+    margin-left:8%;
 }

@@ -1,0 +1,15 @@
+---
+declared-services:
+  etech-conversation-service:
+    label: conversation
+    plan: free
+applications:
+- name: etech-project
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - etech-conversation-service
+  env:
+    NPM_CONFIG_PRODUCTION: false
