@@ -20,13 +20,13 @@
 
 ###Email details
 
-- Email: -------
+- Email: ------
 - Password: ------
 
 ###IBM Bluemix details
 
-- Email: --------
-- Password: -------
+- Email: ------
+- Password: ------
 
 ##Helper links
 
