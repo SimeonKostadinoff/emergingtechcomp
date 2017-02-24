@@ -20,13 +20,13 @@
 
 ###Email details
 
-- Email: etech_team@hotmail.com
-- Password: etechteam2016
+- Email: -------
+- Password: ------
 
 ###IBM Bluemix details
 
-- Email: itinnovation@contacts.bham.ac.uk
-- Password: Itinnov.1
+- Email: --------
+- Password: -------
 
 ##Helper links
 

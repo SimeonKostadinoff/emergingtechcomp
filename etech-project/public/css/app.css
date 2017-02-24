@@ -51,7 +51,7 @@
 }
 
 .chat-column {
-  height: 100%;
+  height: 150px;
   padding: 0.9375rem 0 0.625rem 0;
   margin: auto;
   text-align: left;
@@ -101,9 +101,8 @@
   color: #fff;
   letter-spacing: 0.015rem;
   line-height: 1.3125rem;
-  background: #00B4A0;
+  background: #2657a5;
   border-radius: 1.25rem;
-  border-bottom-right-radius: 0;
   text-align: left;
   display: inline-block;
   margin-left: 2.5rem;
@@ -114,12 +113,6 @@
   margin: 0.3125rem;
   padding: 0 0.9375rem;
 }
-
-.from-user .message-inner:before, .from-user .message-inner:after {
-  content: "";
-  position: absolute;
-}
-
 
 .from-user .message-inner:before {
   z-index: -2;
@@ -155,7 +148,6 @@
 
 .from-watson p {
   margin: 0.3125rem;
-  padding: 0 1.25rem;
 }
 
 .from-watson.latest.top p:before {
@@ -187,8 +179,21 @@
 
 }
 
+#textInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+#textInput::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+#textInput:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+#textInput:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}
+
 #textInput.underline {
-  border-bottom: 2px solid #00B4A0;
+  border-bottom: 2px solid #2657a5;
 }
 
 ::-webkit-input-placeholder {
@@ -215,7 +220,7 @@ input:-moz-placeholder {
 
 .inputOutline {
   display: block;
-  border-bottom: 0.0625rem solid #aeaeae;
+  border-bottom: 0.0625rem solid #fff;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }

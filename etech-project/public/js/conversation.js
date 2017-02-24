@@ -201,6 +201,7 @@ function setupInputBox() {
     var result = UpdateUI.result(watson_response);
     if(result == 'No match'){
       chatBoxElement.appendChild(currentDiv);
+      Api.speak(watson_response);
     }else{
       result();
     }
