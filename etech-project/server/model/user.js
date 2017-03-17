@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Schema.Types.ObjectId;
+let mongoose = require('mongoose');
+let ObjectId = mongoose.Schema.Types.ObjectId;
 
-var userSchema = mongoose.Schema({
+let userSchema = mongoose.Schema({
 	email: {type: String, require: '{PATH} is required', unique: true},
 	firstName: {type: String, require: '{PATH} is required'},
 	lastName: {type: String, require: '{PATH} is required'},
@@ -15,7 +15,7 @@ var userSchema = mongoose.Schema({
 	lessons: [{type: ObjectId, ref: 'Lesson'}]
 });
 
-var User = mongoose.model('User', userSchema);
+let User = mongoose.model('User', userSchema);
 
 module.exports.initialUser = function ()
 {

@@ -25,6 +25,7 @@ var username_conversation = 'c1155938-96e4-42c8-b58b-b644b0f36f10';
 var password_conversation = 'moHzLaV0fDuw';
 var username_textToSpeech = '650dc7a2-fa38-41f3-aed0-b52d9d30b8ed';
 var password_textToSpeech = 'iMYQ1pmVTs71';
+let userController = require('./controller/userController');
 
 var app = express();
 
@@ -112,6 +113,8 @@ app.get('/api/voices', (req, res, next) => {
     res.json(voices);
   });
 });
+
+app.get('/api/user', userController.getUserData);
 
 /**
  * Updates the response text using the intent confidence

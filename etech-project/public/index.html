@@ -1,95 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <style>
-          /* The Modal (background) */
-          .modal {
-              display: none; /* Hidden by default */
-              position: fixed; /* Stay in place */
-              z-index: 1; /* Sit on top */
-              left: 0;
-              top: 0;
-              width: 100%; /* Full width */
-              height: 100%; /* Full height */
-              overflow: auto; /* Enable scroll if needed */
-              background-color: rgb(0,0,0); /* Fallback color */
-              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-              -webkit-animation-name: fadeIn; /* Fade in the background */
-              -webkit-animation-duration: 0.4s;
-              animation-name: fadeIn;
-              animation-duration: 0.4s
-          }
+<head>
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            -webkit-animation-name: fadeIn; /* Fade in the background */
+            -webkit-animation-duration: 0.4s;
+            animation-name: fadeIn;
+            animation-duration: 0.4s
+        }
 
-          /* Modal Content */
-          .modal-content {
-              position: fixed;
-              bottom: 0;
-              background-color: #fefefe;
-              width: 100%;
-              -webkit-animation-name: slideIn;
-              -webkit-animation-duration: 0.4s;
-              animation-name: slideIn;
-              animation-duration: 0.4s
-          }
+        /* Modal Content */
+        .modal-content {
+            position: fixed;
+            bottom: 0;
+            background-color: #fefefe;
+            width: 100%;
+            -webkit-animation-name: slideIn;
+            -webkit-animation-duration: 0.4s;
+            animation-name: slideIn;
+            animation-duration: 0.4s
+        }
 
-          /* The Close Button */
-          .close {
-              color: white;
-              float: right;
-              font-size: 28px;
-              font-weight: bold;
-          }
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-          .close:hover,
-          .close:focus {
-              color: #000;
-              text-decoration: none;
-              cursor: pointer;
-          }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-          .modal-header {
-              padding: 2px 16px;
-              background-color: #2657a5;
-              color: white;
-          }
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #2657a5;
+            color: white;
+        }
 
-          .modal-body {padding: 2px 16px;}
+        .modal-body {
+            padding: 2px 16px;
+        }
 
-          .modal-footer {
-              padding: 2px 16px;
-              background-color: #2657a5;
-              color: white;
-          }
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #2657a5;
+            color: white;
+        }
 
-          /* Add Animation */
-          @-webkit-keyframes slideIn {
-              from {bottom: -300px; opacity: 0}
-              to {bottom: 0; opacity: 1}
-          }
+        /* Add Animation */
+        @-webkit-keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
 
-          @keyframes slideIn {
-              from {bottom: -300px; opacity: 0}
-              to {bottom: 0; opacity: 1}
-          }
+        @keyframes slideIn {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
 
-          @-webkit-keyframes fadeIn {
-              from {opacity: 0}
-              to {opacity: 1}
-          }
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
 
-          @keyframes fadeIn {
-              from {opacity: 0}
-              to {opacity: 1}
-          }
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
 
-          .carousel{
-              width: 47.5%;
-          }
-          .carousel-inner > .item > img,
-          .carousel-inner > .item > a > img {
-              margin: auto;
-          }
-      </style>
+        .carousel {
+            width: 47.5%;
+        }
+
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            margin: auto;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,10 +124,9 @@
     <title>Project Ignis</title>
 
     <!-- Bootstrap core CSS -->
-      <link href="theme.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-      <!-- Bootstrap theme -->
+    <!-- Bootstrap theme -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -117,249 +139,536 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 
-      <script TYPE="text/javascript">
-        function popup(mylink, windowname) {
-          if (! window.focus)return true;
-          var href;
-          if (typeof(mylink) == 'string') href=mylink;
-          else href=mylink.href;
-          window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
-          return false;
+    <script TYPE="text/javascript">
+        function popup(mylink, windowname)
+        {
+            if (!window.focus)return true;
+            var href;
+            if (typeof(mylink) == 'string') href = mylink;
+            else href = mylink.href;
+            window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
+            return false;
         }
-      </script>
+    </script>
 
-      <script>
-          // Get the modal
-          var profModal = document.getElementById('profModal');
-          var lessonModal = document.getElementById('lessonModal');
-          var lessonSession = document.getElementById('lessonSession');
-          var lessonSession = document.getElementById('commandModal');
-          var lessonSession = document.getElementById('achieveModal');
+    <script>
+        // Get the modal
+        var profModal = document.getElementById('profModal');
+        var lessonModal = document.getElementById('lessonModal');
+        var lessonSession = document.getElementById('lessonSession');
+        var lessonSession = document.getElementById('commandModal');
+        var lessonSession = document.getElementById('achieveModal');
 
-          //audio
-          var intro = new Audio("assets/audio/ignisintro.mp3");
+        //audio
+        var intro = new Audio("assets/audio/ignisintro.mp3");
 
 
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
 
-          // Get the button that opens the modal
-          var btn = document.getElementById("myBtn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-          // Get the <span> element that closes the modal
-          var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal
+        btn.onclick = function ()
+        {
+            modal.style.display = "block";
+        };
 
-          // When the user clicks the button, open the modal
-          btn.onclick = function() {
-              modal.style.display = "block";
-          }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function ()
+        {
+            modal.style.display = "none";
+        };
 
-          // When the user clicks on <span> (x), close the modal
-          span.onclick = function() {
-              modal.style.display = "none";
-          }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event)
+        {
+            if (event.target == modal)
+            {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function(event) {
-              if (event.target == modal) {
-                  modal.style.display = "none";
-              }
-          }
-      </script>
+    <![endif]-->
+</head>
 
-      <![endif]-->
-  </head>
+<!-- Fixed navbar -->
 
-  <!-- Fixed navbar -->
-
-  <nav class="navbar-fixed-top">
+<nav class="navbar-fixed-top">
     <div class="container">
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav nav-pills" role="tablist">
-          <li role="presentation" class="active"><a href="#">Classroom <span class="badge"></span></a></li>
-          <li role="presentation"><a href="#">Alerts <span class="badge">3</span></a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="active"><a href="#">Classroom <span class="badge"></span></a></li>
+                <li role="presentation"><a href="#">Alerts <span class="badge">3</span></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
     </div>
-  </nav>
+</nav>
 
-  <body>
+<body>
 
-    <div class="container theme-showcase" role="main">
+<div class="container theme-showcase" role="main">
 
-      <div class="col-sm-4">
+    <div class="col-sm-4">
         <div class="panel panel-default" id="talk-to-me-panel">
-          <div class="panel-heading">
-            <h4>Talk to me!</h4>
-          </div>
-          <div class="panel-body">
-            Use the following commands to try talking to Ignis:
-              <ul class="list-group">
-                <li class="list-group-item"><h5>Hello!</h5></li>
-                <li class="list-group-item"><h5>How am I progressing?</h5></li>
-                <li class="list-group-item"><h5>What can you do?</h5></li>
-              </ul>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commandModal" onclick="document.getElementById('introSound').play();">See more</button>
-          </div>
+            <div class="panel-heading">
+                <h4>Talk to me!</h4>
+            </div>
+            <div class="panel-body">
+                Use the following commands to try talking to Ignis:
+                <ul class="list-group">
+                    <li class="list-group-item"><h5>Hello!</h5></li>
+                    <li class="list-group-item"><h5>How am I progressing?</h5></li>
+                    <li class="list-group-item"><h5>What can you do?</h5></li>
+                </ul>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commandModal"
+                        onclick="document.getElementById('introSound').play();">See more
+                </button>
+            </div>
         </div>
 
-          <!-- Command Modal -->
-          <div id="commandModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Talking to Ignis</h4>
-                          <br>
-                          <p>Ignis is a listening, learning, AI-driven virtual tutor, created to guide users of all ages through a new
-                          kind of learning experience, growing with and adapting to them and their individual needs throughout
-                              their lives. She is powered by IBM Watson cognitive services.</p>
-                          <p>Perhaps one day, Ignis will offer qualifications and courses taught in partnership with humans,
-                              and organisations such as internet.org, to provide social equalisation and genuine, personalised education, anywhere.</p>
-                          <p>Below are some commands you can use to experiment with Ignis's speech recognition and
-                          conversational capabilities.</p>
-                      </div>
-                      <div class="modal-body">
-
-                          <!-- Command table -->
-                          <table style="width: 95%; height: 374px;" border="1" class="commandtable">
-                              <tbody>
-                              <tr style="height: 53px;">
-                                  <td style="width: 342px; height: 53px;"><strong>Request</strong></td>
-                                  <td style="width: 362px; height: 53px;"><strong>Response</strong></td>
-                              </tr>
-                              <tr style="height: 53px;">
-                                  <td style="width: 342px; height: 53px;">How are you?</td>
-                                  <td style="width: 362px; height: 53px;">Test Ignis's conversational capability by seeing how she responds to basic human questions.</td>
-                              </tr>
-                              <tr style="height: 53px;">
-                                  <td style="width: 342px; height: 53px;">What lessons do you suggest I take?</td>
-                                  <td style="width: 362px; height: 53px;">Ignis will open the lessons window.</td>
-                              </tr>
-                              <tr style="height: 53px;">
-                                  <td style="width: 342px; height: 53px;">Show me my profile.</td>
-                                  <td style="width: 362px; height: 53px;">Ignis will open your profile dashboard.</td>
-                              </tr>
-                              <tr style="height: 53px;">
-                                  <td style="width: 342px; height: 53px;">Show me my achievements.</td>
-                                  <td style="width: 362px; height: 53px;">Ignis will open your trophy cabinet and display your achievements.</td>
-                              </tr>
-                              <tr style="height: 54px;">
-                                  <td style="width: 342px; height: 54px;">
-                                      <p>What is 42 multiplied by 7?</p>
-                                      <p>What is the capital of Bulgaria?</p>
-                                      <p>Define "learning".</p>
-                                  </td>
-                                  <td style="width: 362px; height: 54px;">Test Ignis's helpful ability to provide facts on demand, to aid during your work and study.</td>
-                              </tr>
-                              <tr style="height: 54px;">
-                                  <td style="width: 342px; height: 54px;">Begin my next lesson.&nbsp;</td>
-                                  <td style="width: 362px; height: 54px;">Ignis will begin the next lesson session in your current course.</td>
-                              </tr>
-                              </tbody>
-                          </table>
-
-                          <!-- Intro audio track can play when this opens -->
-                          <audio src="assets/audio/ignisintro.mp3" id="introSound"> </audio>
-
-                      </div>
-
-                      <div class="modal-body">
-                          <!--Stuff here-->
-
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="document.getElementById('introSound').pause();
-                          document.getElementById('introSound').currentTime=0;">Close</button>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4>Next Lesson:</h4>
-              <!--Button below needs to open a different modal for lessons:-->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lessonModal">View Lessons</button>
-          </div>
-          <div class="panel-body">
-            Whole numbers, GCSE Mathematics
-            <br>
-
-            <iframe width=100% height="200px" src="https://www.youtube.com/embed/9Jg5S7F2SMQ" frameborder="0" allowfullscreen></iframe>
-
-          </div>
-        </div>
-      </div>
-
-        <!-- Lessons Modal -->
-        <div id="lessonModal" class="modal fade" role="dialog">
+        <!-- Command Modal -->
+        <div id="commandModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">My Lessons</h4>
+                        <h4 class="modal-title">Talking to Ignis</h4>
                         <br>
-                        <p>Below is a selection of lessons. The next in your course, recommended lessons, and lessons recently taken.</p>
+                        <p>Ignis is a listening, learning, AI-driven virtual tutor, created to guide users of all ages
+                            through a new
+                            kind of learning experience, growing with and adapting to them and their individual needs
+                            throughout
+                            their lives. She is powered by IBM Watson cognitive services.</p>
+                        <p>Perhaps one day, Ignis will offer qualifications and courses taught in partnership with
+                            humans,
+                            and organisations such as internet.org, to provide social equalisation and genuine,
+                            personalised education, anywhere.</p>
+                        <p>Below are some commands you can use to experiment with Ignis's speech recognition and
+                            conversational capabilities.</p>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- Command table -->
+                        <table style="width: 95%; height: 374px;" border="1" class="commandtable">
+                            <tbody>
+                            <tr style="height: 53px;">
+                                <td style="width: 342px; height: 53px;"><strong>Request</strong></td>
+                                <td style="width: 362px; height: 53px;"><strong>Response</strong></td>
+                            </tr>
+                            <tr style="height: 53px;">
+                                <td style="width: 342px; height: 53px;">How are you?</td>
+                                <td style="width: 362px; height: 53px;">Test Ignis's conversational capability by seeing
+                                    how she responds to basic human questions.
+                                </td>
+                            </tr>
+                            <tr style="height: 53px;">
+                                <td style="width: 342px; height: 53px;">What lessons do you suggest I take?</td>
+                                <td style="width: 362px; height: 53px;">Ignis will open the lessons window.</td>
+                            </tr>
+                            <tr style="height: 53px;">
+                                <td style="width: 342px; height: 53px;">Show me my profile.</td>
+                                <td style="width: 362px; height: 53px;">Ignis will open your profile dashboard.</td>
+                            </tr>
+                            <tr style="height: 53px;">
+                                <td style="width: 342px; height: 53px;">Show me my achievements.</td>
+                                <td style="width: 362px; height: 53px;">Ignis will open your trophy cabinet and display
+                                    your achievements.
+                                </td>
+                            </tr>
+                            <tr style="height: 54px;">
+                                <td style="width: 342px; height: 54px;">
+                                    <p>What is 42 multiplied by 7?</p>
+                                    <p>What is the capital of Bulgaria?</p>
+                                    <p>Define "learning".</p>
+                                </td>
+                                <td style="width: 362px; height: 54px;">Test Ignis's helpful ability to provide facts on
+                                    demand, to aid during your work and study.
+                                </td>
+                            </tr>
+                            <tr style="height: 54px;">
+                                <td style="width: 342px; height: 54px;">Begin my next lesson.&nbsp;</td>
+                                <td style="width: 362px; height: 54px;">Ignis will begin the next lesson session in your
+                                    current course.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Intro audio track can play when this opens -->
+                        <audio src="assets/audio/ignisintro.mp3" id="introSound"></audio>
+
                     </div>
 
                     <div class="modal-body">
-                        <!--align-content does not work currently-->
-                        <p><b>Next lesson</b> - In the course <strong>GCSE Mathematics</strong>:</p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/9Jg5S7F2SMQ" frameborder="0" allowfullscreen></iframe>
+                        <!--Stuff here-->
 
-                        <button type="button" class="btn btn-primary" id="lessonbutton" data-toggle="modal" data-target="#lessonSession">Begin lesson</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="document.getElementById('introSound').pause();
+                          document.getElementById('introSound').currentTime=0;">Close
+                        </button>
+                    </div>
+                </div>
 
-                        <br><h3> Suggested lessons: </h3>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Next Lesson:</h4>
+                <!--Button below needs to open a different modal for lessons:-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lessonModal">View
+                    Lessons
+                </button>
+            </div>
+            <div class="panel-body">
+                Whole numbers, GCSE Mathematics
+                <br>
+
+                <iframe width=100% height="200px" src="https://www.youtube.com/embed/9Jg5S7F2SMQ" frameborder="0"
+                        allowfullscreen></iframe>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Lessons Modal -->
+    <div id="lessonModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">My Lessons</h4>
+                    <br>
+                    <p>Below is a selection of lessons. The next in your course, recommended lessons, and lessons
+                        recently taken.</p>
+                </div>
+
+                <div class="modal-body">
+                    <!--align-content does not work currently-->
+                    <p><b>Next lesson</b> - In the course <strong>GCSE Mathematics</strong>:</p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9Jg5S7F2SMQ" frameborder="0"
+                            allowfullscreen></iframe>
+
+                    <button type="button" class="btn btn-primary" id="lessonbutton" data-toggle="modal"
+                            data-target="#lessonSession">Begin lesson
+                    </button>
+
+                    <br>
+                    <h3> Suggested lessons: </h3>
 
 
-                        <div class="container">
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                <!-- Indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                                </ol>
+                    <div class="container">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                            </ol>
 
-                                <!-- Wrapper for slides -->
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <iframe width="100%" height="345" src="https://www.youtube.com/embed/PLtMwVVO64A" frameborder="0" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="item">
-                                        <iframe width="100%" height="345" src="https://www.youtube.com/embed/HtSuA80QTyo?list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb" frameborder="0" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="item">
-                                        <iframe width="100%" height="345" src="https://www.youtube.com/embed/UzxYlbK2c7E" frameborder="0" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="item">
-                                        <iframe width="100%" height="345" src="https://www.youtube.com/embed/TJxgDp1mhI0" frameborder="0" allowfullscreen></iframe>
-                                    </div>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <iframe width="100%" height="345" src="https://www.youtube.com/embed/PLtMwVVO64A"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="item">
+                                    <iframe width="100%" height="345"
+                                            src="https://www.youtube.com/embed/HtSuA80QTyo?list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="item">
+                                    <iframe width="100%" height="345" src="https://www.youtube.com/embed/UzxYlbK2c7E"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="item">
+                                    <iframe width="100%" height="345" src="https://www.youtube.com/embed/TJxgDp1mhI0"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Lesson session Modal -->
+    <div id="lessonSession" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Lesson 1: Whole numbers</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Writing whole numbers as words</h3>
+                    <p>Each digit in a number has a <strong>place value</strong>. It shows the position of a digit in a
+                        number. The first few place values are shown in the table.</p>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><span>Millions</span></th>
+                            <th><span>Hundred thousands</span></th>
+                            <th><span>Ten thousands</span></th>
+                            <th><span>Thousands</span></th>
+                            <th><span>Hundreds</span></th>
+                            <th><span>Tens</span></th>
+                            <th><span>Units</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-title="Millions"></td>
+                            <td data-title="Hundred thousands"></td>
+                            <td data-title="Ten thousands"></td>
+                            <td data-title="Thousands"></td>
+                            <td data-title="Hundreds"></td>
+                            <td data-title="Tens"></td>
+                            <td data-title="Units"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p>Numbers can be written as words using a place value table.</p>
+
+                    <h4>Example</h4>
+                    <p>In the number 52,604, the digit 5 has a value of 50,000 (fifty thousand) and the digit 4 has the
+                        value of 4 units (four).</p>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><span>Millions</span></th>
+                            <th><span>Hundred thousands</span></th>
+                            <th><span>Ten thousands</span></th>
+                            <th><span>Thousands</span></th>
+                            <th><span>Hundreds</span></th>
+                            <th><span>Tens</span></th>
+                            <th><span>Units</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-title="Millions"></td>
+                            <td data-title="Hundred thousands"></td>
+                            <td data-title="Ten thousands">5</td>
+                            <td data-title="Thousands">2</td>
+                            <td data-title="Hundreds">6</td>
+                            <td data-title="Tens">0</td>
+                            <td data-title="Units">4</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">End lesson</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+
+        <img src="assets/img/logo3.png" width="265px" id="contentcenter">
+
+        <div id="contentParent" class="responsive-columns-wrapper">
+            <div id="chat-column-holder" class="responsive-column content-column">
+                <div class="chat-column">
+                    <div id="scrollingChat"></div>
+                    <label for="textInput" class="inputOutline">
+                        <input id="textInput" class="input responsive-column"
+                               placeholder="Type your request..." type="text"
+                               onkeydown="ConversationPanel.inputKeyDown(event, this)">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <audio autoplay id="audio">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Your report card:</h4>
+            </div>
+            <div class="panel-body">
+                <img src="assets/img/man.png" style="width:70px;height:70px;" class="img-thumbnail"
+                     alt="Your profile photo.">
+                <div class="first-last-name-level"></div>
+                <!-- Progress bar here -->
+
+               <div class="panel"></div>
+
+                <div class="progress">
+                    <div id="progress-bar" class="progress-bar progress-bar-success" style="width: 0"><span class="sr-only"></span></div>
+                </div>
+                <p>Level 14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp;
+                    &nbsp; Level 15</p>
+
+                <div class="right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profModal">View
+                        profile
+                    </button>
+
+                    <!-- Profile Modal -->
+                    <div id="profModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">My Profile</h4>
+                                    <br>
+                                    <p>Welcome to your Ignis profile. This will evolve with you throughout your
+                                        lifelong studentship. Track your progress, look back at how far you've come,
+                                        and plot a path of where to go - and what to know - next.</p>
                                 </div>
 
-                                <!-- Left and right controls -->
-                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
+                                <div class="modal-body">
+                                    <!--align-content does not work currently-->
+                                    <div class="col-sm-4">
+                                        <img src="assets/img/man.png" style="width:140px;height:140px;"
+                                             class="img-thumbnail" alt="Your profile photo.">
+                                    </div>
+                                    <h4 class="first-last-name-level">Mason Cusack - Level 14</h4>
+                                    <p>| 14000
+                                        XP &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+                                        &emsp; &emsp; 15000 XP |</p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" style="width: 35%"><span
+                                                class="sr-only">35% Complete (success)</span></div>
+                                        <div class="progress-bar progress-bar-warning" style="width: 20%"><span
+                                                class="sr-only">20% Complete (warning)</span></div>
+                                        <div class="progress-bar progress-bar-danger" style="width: 10%"><span
+                                                class="sr-only">10% Complete (danger)</span></div>
+                                    </div>
+                                    <p>Level
+                                        14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+                                        &emsp; &emsp; Level 15</p>
+                                    <br>
+                                    <p>Earn more XP by completing lessons, courses, assessments, and achieving
+                                        milestones, to unlock achievements!</p>
+                                    <h3> Recent achievements: </h3>
 
-                        <div class="col-sm-4">
+                                    &emsp;
+                                    <a href="#"><img width="170px" src="assets/img/100th.png"></a>
+                                    &emsp;
+                                    <a href="#"><img width="170px" src="assets/img/testcomplete.png"></a>
+                                    &emsp;
+                                    <a href="#"><img width="170px" src="assets/img/levelup.png"></a>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Achievements</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#achieveModal">View all
+                </button>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                        <h4 class="list-group-item-heading">Your 100th lesson!</h4>
+                        <p class="list-group-item-text">Collect a reward from the Ignis team.</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Completed Science Test 4!</h4>
+                        <p class="list-group-item-text">Now go for test 5 to finish your course and earn XP!</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Levelled up!</h4>
+                        <p class="list-group-item-text">You're now "studious". Click to see unlocks and claim a
+                            reward.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- Achievement Modal -->
+        <div id="achieveModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">My Achievements</h4>
+                        <p>Throughout the course of your time learning with Ignis, you'll unlock achievements,
+                            including rewards and accolades, which show your credibility as a student.</p>
+                        <p>In the future, you may even be awarded with certificates and qualifications which
+                            legitimately enhance your resume.</p>
+                    </div>
+                    <div class="modal-body">
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/100th.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/testcomplete.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/levelup.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/scientist.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/guitar.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/coursestart.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/atest.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/coursefinish.png"></a>
+
+                        <a href="#"><img width="170px" class="achievepics" src="assets/img/enrollment.png"></a>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -369,269 +678,28 @@
             </div>
         </div>
 
-        <!-- Lesson session Modal -->
-        <div id="lessonSession" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Lesson 1: Whole numbers</h4>
-                    </div>
-                    <div class="modal-body">
-                        <h3>Writing whole numbers as words</h3>
-                        <p>Each digit in a number has a <strong>place value</strong>. It shows the position of a digit in a number. The first few place values are shown in the table.</p>
-                        <table class="table">
-                            <thead><tr>
-                                <th><span>Millions</span></th>
-                                <th><span>Hundred thousands</span></th>
-                                <th><span>Ten thousands</span></th>
-                                <th><span>Thousands</span></th>
-                                <th><span>Hundreds</span></th>
-                                <th><span>Tens</span></th>
-                                <th><span>Units</span></th>
-                            </tr></thead>
-                            <tbody><tr>
-                                <td data-title="Millions"></td>
-                                <td data-title="Hundred thousands"></td>
-                                <td data-title="Ten thousands"></td>
-                                <td data-title="Thousands"></td>
-                                <td data-title="Hundreds"></td>
-                                <td data-title="Tens"></td>
-                                <td data-title="Units"></td>
-                            </tr></tbody>
-                        </table>
-                        <p>Numbers can be written as words using a place value table.</p>
-
-                        <h4>Example</h4>
-                        <p>In the number 52,604, the digit 5 has a value of 50,000 (fifty thousand) and the digit 4 has the value of 4 units (four).</p>
-                        <table class="table">
-                            <thead><tr>
-                                <th><span>Millions</span></th>
-                                <th><span>Hundred thousands</span></th>
-                                <th><span>Ten thousands</span></th>
-                                <th><span>Thousands</span></th>
-                                <th><span>Hundreds</span></th>
-                                <th><span>Tens</span></th>
-                                <th><span>Units</span></th>
-                            </tr></thead>
-                            <tbody><tr>
-                                <td data-title="Millions"></td>
-                                <td data-title="Hundred thousands"></td>
-                                <td data-title="Ten thousands">5</td>
-                                <td data-title="Thousands">2</td>
-                                <td data-title="Hundreds">6</td>
-                                <td data-title="Tens">0</td>
-                                <td data-title="Units">4</td>
-                            </tr></tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">End lesson</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    <div class="col-sm-4">
-
-          <img src="assets/img/logo3.png" width="265px" id="contentcenter">
-
-          <div id="contentParent" class="responsive-columns-wrapper">
-           <div id="chat-column-holder" class="responsive-column content-column">
-             <div class="chat-column">
-               <div id="scrollingChat"></div>
-               <label for="textInput" class="inputOutline">
-                 <input id="textInput" class="input responsive-column"
-                   placeholder="Type your request..." type="text"
-                   onkeydown="ConversationPanel.inputKeyDown(event, this)">
-               </label>
-             </div>
-           </div>
-         </div>
-         <audio autoplay id="audio">
-              Your browser does not support the audio element.
-        </audio>
-      </div>
-
-
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4>Your report card:</h4>
-          </div>
-          <div class="panel-body">
-                <img src="assets/img/man.png" style="width:70px;height:70px;" class="img-thumbnail" alt="Your profile photo.">
-                Mason Cusack - Level 14
-                <!-- Progress bar here -->
-
-                    <div class="panel"></div>
-
-                      <div class="progress">
-                          <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-                          <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-                          <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
-                      </div>
-                      <p>Level 14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp; &nbsp; Level 15</p>
-
-                    <div class="right">
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profModal">View profile</button>
-
-                        <!-- Profile Modal -->
-                        <div id="profModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">My Profile</h4>
-                                        <br>
-                                        <p>Welcome to your Ignis profile. This will evolve with you throughout your
-                                            lifelong studentship. Track your progress, look back at how far you've come,
-                                            and plot a path of where to go - and what to know - next.</p>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <!--align-content does not work currently-->
-                                        <div class="col-sm-4">
-                                            <img src="assets/img/man.png" style="width:140px;height:140px;" class="img-thumbnail" alt="Your profile photo.">
-                                        </div>
-                                        <h4>Mason Cusack - Level 14 Scientist</h4>
-                                        <p>| 14000 XP &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-                                            &emsp; &emsp; 15000 XP |</p>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
-                                            <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-                                            <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
-                                        </div>
-                                            <p>Level 14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-                                                &emsp; &emsp; Level 15</p>
-                                        <br>
-                                        <p>Earn more XP by completing lessons, courses, assessments, and achieving milestones, to unlock achievements!</p>
-                                        <h3> Recent achievements: </h3>
-
-                                                &emsp;
-                                                <a href="#"><img width="170px" src="assets/img/100th.png"></a>
-                                                &emsp;
-                                                <a href="#"><img width="170px" src="assets/img/testcomplete.png"></a>
-                                                &emsp;
-                                                <a href="#"><img width="170px" src="assets/img/levelup.png"></a>
-
-
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-          </div>
-        </div>
-
-
-
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4>Achievements</h4>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#achieveModal">View all</button>
-              </div>
-                  <div class="panel-body">
-                    <div class="list-group">
-                      <a href="#" class="list-group-item active">
-                        <h4 class="list-group-item-heading">Your 100th lesson!</h4>
-                        <p class="list-group-item-text">Collect a reward from the Ignis team.</p>
-                      </a>
-                      <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Completed Science Test 4!</h4>
-                        <p class="list-group-item-text">Now go for test 5 to finish your course and earn XP!</p>
-                      </a>
-                      <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Levelled up!</h4>
-                        <p class="list-group-item-text">You're now "studious". Click to see unlocks and claim a reward.</p>
-                      </a>
-                    </div>
-              </div>
-        </div>
-        </div>
-
-          <div class="row">
-
-              <!-- Achievement Modal -->
-              <div id="achieveModal" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title">My Achievements</h4>
-                              <p>Throughout the course of your time learning with Ignis, you'll unlock achievements,
-                              including rewards and accolades, which show your credibility as a student.</p>
-                              <p>In the future, you may even be awarded with certificates and qualifications which
-                              legitimately enhance your resume.</p>
-                          </div>
-                          <div class="modal-body">
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/100th.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/testcomplete.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/levelup.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/scientist.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/guitar.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/coursestart.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/atest.png"></a>
-
-                              <a href="#"><img width="170px" class="achievepics" src="assets/img/coursefinish.png"></a>
-
-                              <a href="#"><img width="170px"  class="achievepics" src="assets/img/enrollment.png"></a>
-
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                      </div>
-
-                  </div>
-              </div>
-
-          </div>
-
-          
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/lib/socket.io.min.js"></script>
-
-    <script src="js/socket.js"></script>
-
-    <script src="js/lib/ie10-viewport-bug-workaround.js"></script>
-    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
- 
-    <script src="js/common.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/conversation.js"></script>
-    <script src="js/global.js"></script>
-
-    <script src="js/update_ui.js"></script>
     </div>
-  </body>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/docs.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/lib/ie10-viewport-bug-workaround.js"></script>
+
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/conversation.js"></script>
+<script src="js/global.js"></script>
+
+
+<script src="js/update_ui.js"></script>
+</body>
 </html>
