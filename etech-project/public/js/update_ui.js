@@ -2,19 +2,30 @@
 
 (function ($)
 {
+	//populate UI with user data
+	let userData = $.getJSON('/api/user', function (data)
+	{
+		let fields = document.getElementsByClassName('first-last-name-level');
+		for (let i = 0; i < fields.length; i++)
+			fields[i].innerHTML = data.firstName + ' ' + data.lastName + ' - Level ' + data.level;
+
+		fields = document.getElementsByClassName('progress-bar');
+		for (let i = 0; i < fields.length; i++)
+			fields[i].style.width = data.experience + '%';
+
+		fields = document.getElementsByClassName('progress-bar-label');
+		for (let i = 0; i < fields.length; i++)
+			fields[i].innerHTML = 'Level ' + data.level + ' &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Level ' + (data.level + 1);
+
+		fields = document.getElementsByClassName('progress-bar-label-xp');
+		for (let i = 0; i < fields.length; i++)
+			fields[i].innerHTML = '| ' + (data.level * 1000) + ' XP &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;' + ((data.level + 1) * 1000) + ' XP |';
+	});
+
 	var open_lessons = 'open_lessons';
 	var open_profile = 'open_profile';
 	var open_commands = 'open_commands';
 	var open_achievements = 'open_achievements';
-	let userData = $.getJSON('/api/user', function (data)
-	{
-		let fields = document.getElementsByClassName('first-last-name-level');
-		for(let i = 0; i < fields.length; i++)
-		{
-			fields[i].innerHTML = data.firstName + ' ' + data.lastName + ' - Level ' + data.level;
-		}
-		document.getElementById('progress-bar').style.width = data.experience + '%';
-	});
 	return {
 		result: result
 	};
