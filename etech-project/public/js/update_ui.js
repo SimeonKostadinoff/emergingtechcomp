@@ -1,6 +1,6 @@
 // Functions which will update the UI based on the response
 
-(function ($)
+const UpdateUI = (function ($)
 {
 	//populate UI with user data
 	let userData = $.getJSON('/api/user', function (data)
@@ -22,15 +22,15 @@
 			fields[i].innerHTML = '| ' + (data.level * 1000) + ' XP &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;' + ((data.level + 1) * 1000) + ' XP |';
 	});
 
-	var open_lessons = 'open_lessons';
-	var open_profile = 'open_profile';
-	var open_commands = 'open_commands';
-	var open_achievements = 'open_achievements';
+	const open_lessons = 'open_lessons';
+	const open_profile = 'open_profile';
+	const open_commands = 'open_commands';
+	const open_achievements = 'open_achievements';
 	return {
-		result: result
+		resultUpdateUI: resultUpdateUI
 	};
 
-	function result(response)
+	function resultUpdateUI(response)
 	{
 
 		switch (response)
@@ -52,31 +52,31 @@
 	{
 		$('#lessonModal').modal('show');
 		var request = 'These are your lessons.';
-		//Api.speak(request);
-		responsiveVoice.speak(request);
+		Api.speak(request);
+		//responsiveVoice.speak(request);
 	}
 
 	function openProfile()
 	{
 		$('#profModal').modal('show');
 		var request = 'Welcome to your Igins profile. ';
-		//Api.speak(request);
-		responsiveVoice.speak(request);
+		Api.speak(request);
+		//responsiveVoice.speak(request);
 	}
 
 	function openCommands()
 	{
 		$('#commandModal').modal('show');
 		var request = 'Below are some commands you can use to experiment with Ignis\'s speech recognition and conversational capabilities.';
-		//Api.speak(request);
-		responsiveVoice.speak(request);
+		Api.speak(request);
+		//responsiveVoice.speak(request);
 	}
 
 	function openAchievements()
 	{
 		$('#achieveModal').modal('show');
 		var request = 'Here are your achievements, it seems like you are doing quite well!';
-		//Api.speak(request);
-		responsiveVoice.speak(request);
+		Api.speak(request);
+		//responsiveVoice.speak(request);
 	}
 })(jQuery);

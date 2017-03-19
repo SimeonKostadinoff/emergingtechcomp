@@ -500,23 +500,17 @@
     </div>
 
     <div class="col-sm-4">
-
-        <img src="assets/img/logo3.png" width="265px" id="contentcenter">
-
+        <img id="microphoneIcon" src="assets/img/logo3.png" width="265px" id="contentcenter">
         <div id="contentParent" class="responsive-columns-wrapper">
-            <div id="chat-column-holder" class="responsive-column content-column">
-                <div class="chat-column">
-                    <div id="scrollingChat"></div>
-                    <label for="textInput" class="inputOutline">
-                        <input id="textInput" class="input responsive-column"
-                               placeholder="Type your request..." type="text"
-                               onkeydown="ConversationPanel.inputKeyDown(event, this)">
-                    </label>
-                </div>
-            </div>
-        </div>
-        <audio autoplay id="audio">
-            Your browser does not support the audio element.
+           <div id="chat-column-holder" class="responsive-column content-column">
+             <div class="chat-column">
+               <div id="scrollingChat"></div>
+             </div>
+           </div>
+         </div>
+         
+         <audio autoplay id="audio">
+              Your browser does not support the audio element.
         </audio>
     </div>
 
@@ -696,25 +690,24 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-<script src="js/lib/bootstrap.min.js"></script>
-<script src="js/lib/docs.min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/docs.min.js"></script>
+    <script src="js/lib/socket.io.min.js"></script>
+    <script src="js/lib/ie10-viewport-bug-workaround.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="js/lib/watson-speech.js"></script>
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="js/lib/ie10-viewport-bug-workaround.js"></script>
-
-<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-
-<script src="js/common.js"></script>
-<script src="js/api.js"></script>
-<script src="js/conversation.js"></script>
-<script src="js/global.js"></script>
-
-
-<script src="js/update_ui.js"></script>
-</body>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script src="js/update_ui.js"></script>
+    <script src="js/socket.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/conversation.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/speech_to_text.js"></script>
+  </body>
 </html>

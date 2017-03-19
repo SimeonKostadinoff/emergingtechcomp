@@ -1,15 +1,9 @@
 ---
-declared-services:
-  etech-conversation-service:
-    label: conversation
-    plan: free
 applications:
-- name: etech-project
+- services:
+  - etech-conversation-service
+  - etech-text-to-speech
+  name: Ignis
   command: npm start
   path: .
-  memory: 256M
-  instances: 1
-  services:
-  - etech-conversation-service
-  env:
-    NPM_CONFIG_PRODUCTION: false
+  memory: 512M

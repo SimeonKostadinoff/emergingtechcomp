@@ -1,66 +1,71 @@
-/**
- * Copyright 2015 IBM Corp. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 'use strict';
 
-var express = require('express'); // app server
-var bodyParser = require('body-parser'); // parser for post requests
-var Conversation = require('watson-developer-cloud/conversation/v1'); // watson Conversation sdk
-var TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1'); // watson Text to speech sdk 
-var workspace_id = '64ec513d-dfca-403a-a0f9-d7f798059228';
-var username_conversation = 'c1155938-96e4-42c8-b58b-b644b0f36f10';
-var password_conversation = 'moHzLaV0fDuw';
-var username_textToSpeech = '650dc7a2-fa38-41f3-aed0-b52d9d30b8ed';
-var password_textToSpeech = 'iMYQ1pmVTs71';
-let userController = require('./controller/userController');
+const userController = require('./controller/userController');
+const watson = require('watson-developer-cloud');
+const express = require('express'); // app server
+const expressBrowserify = require('express-browserify');
+const bodyParser = require('body-parser'); // parser for post requests
+const config = require('./config.js')
+const app = express();
+const attentionWord = config.attentionWord;
 
-var app = express();
+// automatically compile and serve the front-end js
+// app.get('/js/speech_to_text.js', expressBrowserify('./public/js/speech_to_text/speech_to_text.js', {
+//   watch: process.env.NODE_ENV !== 'production'
+// }));
 
 // Bootstrap application settings
 app.use(express.static('./public')); // load UI from public folder
 app.use(bodyParser.json());
 
-// Create the service wrapper
-var conversation = new Conversation({
+// Create the speech ot  text service
+const speechToText = new watson.SpeechToTextV1({
+  username: config.STTUsername,
+  password: config.STTPassword,
+  version: 'v1'
+});
+
+// Create the conversation service wrapper
+const conversation = watson.conversation({
 	// If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
 	// After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-	username: username_conversation,
-	password: password_conversation,
+	username: config.ConUsername,
+	password: config.ConPassword,
 	url: 'https://gateway.watsonplatform.net/conversation/api',
 	version_date: '2017-01-03',
 	version: 'v1'
 });
 
-var textToSpeech = new TextToSpeechV1({
-  // If unspecified here, the TEXT_TO_SPEECH_USERNAME and
-  // TEXT_TO_SPEECH_PASSWORD env properties will be checked
-  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  
-	username: username_textToSpeech,
-	password: password_textToSpeech,
-	url: 'https://stream.watsonplatform.net/text-to-speech/api',
-	headers: {
-    'X-Watson-Learning-Opt-Out': 'true'
-  }
+// Create the text to speech service wrapper
+
+const textToSpeech = watson.text_to_speech({
+	username: config.TTSUsername,
+	password: config.TTSPassword,
+	version: 'v1'
 });
 
-// Endpoint to be call from the client side
-app.post('/api/message', function (req, res)
-{
-	var workspace = workspace_id || '<workspace-id>';
+/**
+ * Speech to Text
+ */
+
+const authService = new watson.AuthorizationV1(speechToText.getCredentials());
+
+// Get token using your credentials
+app.get('/api/speech-to-text/token', function(req, res, next) {
+  authService.getToken(function(err, token) {
+    if (err) {
+      next(err);
+    } else {
+      res.send(token);
+    }
+  });
+});
+
+/**
+ * Conversation
+ */
+app.post('/api/message', function (req, res){
+	var workspace = config.ConWorkspace || '<workspace-id>';
 	if (!workspace || workspace === '<workspace-id>')
 	{
 		return res.json({
@@ -87,7 +92,7 @@ app.post('/api/message', function (req, res)
 });
 
 /**
- * Pipe the synthesize method
+ * Text to Speech
  */
 app.get('/api/synthesize', (req, res, next) => {
   const transcript = textToSpeech.synthesize(req.query);
@@ -104,16 +109,6 @@ app.get('/api/synthesize', (req, res, next) => {
   transcript.pipe(res);
 });
 
-// Return the list of voices
-app.get('/api/voices', (req, res, next) => {
-  textToSpeech.voices(null, (error, voices) => {
-    if (error) {
-      return next(error);
-    }
-    res.json(voices);
-  });
-});
-
 app.get('/api/user', userController.getUserData);
 
 /**
@@ -122,8 +117,7 @@ app.get('/api/user', userController.getUserData);
  * @param  {Object} response The response from the Conversation service
  * @return {Object}          The response with the updated message
  */
-function updateMessage(input, response)
-{
+function updateMessage(input, response){
 	var responseText = null;
 	if (!response.output)
 	{

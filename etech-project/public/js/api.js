@@ -4,6 +4,7 @@ var Api = (function() {
   var requestPayload;
   var responsePayload;
   var messageEndpoint = '/api/message';
+  var audio = document.getElementById('audio');
 
   // Publicly accessible methods defined
   return {
@@ -29,6 +30,7 @@ var Api = (function() {
   // Send a message request to the server
   function sendRequest(text, context) {
     // Build request payload
+    console.log(text.toString())
     var payloadToWatson = {};
     if (text) {
       payloadToWatson.input = {
@@ -67,7 +69,6 @@ var Api = (function() {
             accept: 'audio/wav'
         }
 
-        var audio = document.getElementById('audio');
         audio.setAttribute('src', '');
         params = $.param(params);
         fetch(`/api/synthesize?${params}`).then((response) => {
