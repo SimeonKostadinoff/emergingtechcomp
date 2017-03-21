@@ -492,7 +492,8 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">End lesson</button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnEndLesson">End lesson</button>
                 </div>
             </div>
 
@@ -516,6 +517,12 @@
 
 
     <div class="col-sm-4">
+
+        <div class="alert alert-success collapse" id="achieveAlert">
+            <button type="button" class="close" data-dismiss="alert">OK</button>
+            <strong>You earned an achievement!</strong> See it in your profile or the achievements screen. <strong>250XP</strong>
+        </div>
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Your report card:</h4>
@@ -694,6 +701,21 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#btnEndLesson').click(function(){
+                $('#achieveAlert').show('fade');
+
+                setTimeout(function(){
+                    $('#achieveAlert').hide('fade');
+                }, 10000);
+            });
+        });
+
+    </script>
+
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/docs.min.js"></script>
     <script src="js/lib/socket.io.min.js"></script>
