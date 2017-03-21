@@ -5,7 +5,7 @@ const watson = require('watson-developer-cloud');
 const express = require('express'); // app server
 const expressBrowserify = require('express-browserify');
 const bodyParser = require('body-parser'); // parser for post requests
-const config = require('./config.js')
+const config = require('./config.js');
 const app = express();
 const attentionWord = config.attentionWord;
 

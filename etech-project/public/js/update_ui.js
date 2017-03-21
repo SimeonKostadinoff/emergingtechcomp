@@ -1,6 +1,6 @@
 // Functions which will update the UI based on the response
 
-const UpdateUI = (function ($)
+let UpdateUI = (function ($)
 {
 	//populate UI with user data
 	let userData = $.getJSON('/api/user', function (data)
@@ -11,7 +11,7 @@ const UpdateUI = (function ($)
 
 		fields = document.getElementsByClassName('progress-bar');
 		for (let i = 0; i < fields.length; i++)
-			fields[i].style.width = data.experience + '%';
+			fields[i].style.width = (data.experience / ((data.level + 1) * 1000) * 100) + '%';
 
 		fields = document.getElementsByClassName('progress-bar-label');
 		for (let i = 0; i < fields.length; i++)
@@ -51,7 +51,7 @@ const UpdateUI = (function ($)
 	function openLessons()
 	{
 		$('#lessonModal').modal('show');
-		var request = 'These are your lessons.';
+		let request = 'These are your lessons.';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
 	}
@@ -59,7 +59,7 @@ const UpdateUI = (function ($)
 	function openProfile()
 	{
 		$('#profModal').modal('show');
-		var request = 'Welcome to your Igins profile. ';
+		let request = 'Welcome to your Igins profile. ';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
 	}
@@ -67,7 +67,7 @@ const UpdateUI = (function ($)
 	function openCommands()
 	{
 		$('#commandModal').modal('show');
-		var request = 'Below are some commands you can use to experiment with Ignis\'s speech recognition and conversational capabilities.';
+		let request = 'Below are some commands you can use to experiment with Ignis\'s speech recognition and conversational capabilities.';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
 	}
@@ -75,8 +75,31 @@ const UpdateUI = (function ($)
 	function openAchievements()
 	{
 		$('#achieveModal').modal('show');
-		var request = 'Here are your achievements, it seems like you are doing quite well!';
+		let request = 'Here are your achievements, it seems like you are doing quite well!';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
 	}
 })(jQuery);
+
+let lesson = 0;
+function progressLesson()
+{
+	let lessonSession = $('#lessonSession');
+	let button = lessonSession.find('.modal-dialog .modal-content .modal-footer button');
+	if(lesson > 2)
+		lesson = 0;
+	switch (lesson)
+	{
+		case 0:
+			lessonSession.find('.modal-dialog .modal-content .modal-body').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/9Jg5S7F2SMQ" frameborder="0" allowfullscreen></iframe>');
+			break;
+		case 1:
+			button.html('End Lesson');
+			lessonSession.find('.modal-dialog .modal-content .modal-body').html('Lol');
+			break;
+		case 2:
+			button.attr('data-dismiss', 'modal');
+			break;
+	}
+	lesson++;
+}

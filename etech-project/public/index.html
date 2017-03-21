@@ -493,7 +493,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btnEndLesson">End lesson</button>
+                    <button type="button" id="btnEndLesson" class="btn btn-default" onclick="progressLesson()">Next</button>
                 </div>
             </div>
 
@@ -538,16 +538,9 @@
                 <div class="panel"></div>
 
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success"><span class="sr-only"></span></div>
+                    <div class="progress-bar progress-bar-success" style="width: 0%"><span class="sr-only"></span></div>
                 </div>
-                <!--<div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span>-->
-                <!--</div>-->
-                <!--<div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span>-->
-                <!--</div>-->
-                <!--<div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span>-->
-                <!--</div>-->
-                <!--<p>Level 14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp;-->
-                <!--&nbsp; Level 15</p>-->
+
                 <p class="progress-bar-label"></p>
                 <div class="right">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profModal">View
@@ -575,25 +568,12 @@
                                         <img src="assets/img/man.png" style="width:140px;height:140px;"
                                              class="img-thumbnail" alt="Your profile photo.">
                                     </div>
-                                    <!--<h4>Mason Cusack - Level 14</h4>-->
                                     <h4 class="first-last-name-level"></h4>
-                                    <!--<p>| 14000 XP &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 15000 XP |</p>-->
                                     <p class="progress-bar-label-xp"></p>
-
-                                    <!--<div class="progress">-->
-                                        <!--<div class="progress-bar progress-bar-success" style="width: 35%"><span-->
-                                                <!--class="sr-only">35% Complete (success)</span></div>-->
-                                        <!--<div class="progress-bar progress-bar-warning" style="width: 20%"><span-->
-                                                <!--class="sr-only">20% Complete (warning)</span></div>-->
-                                        <!--<div class="progress-bar progress-bar-danger" style="width: 10%"><span-->
-                                                <!--class="sr-only">10% Complete (danger)</span></div>-->
-                                    <!--</div>-->
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-success"><span class="sr-only"></span></div>
+                                        <div class="progress-bar progress-bar-success" style="width: 0%"><span class="sr-only"></span></div>
                                     </div>
-                                    <!--<p>Level-->
-                                        <!--14 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;-->
-                                        <!--&emsp; &emsp; Level 15</p>-->
+
                                     <p class="progress-bar-label"></p>
                                     <br>
                                     <p>Earn more XP by completing lessons, courses, assessments, and achieving
@@ -706,11 +686,15 @@
 
         $(document).ready(function(){
             $('#btnEndLesson').click(function(){
-                $('#achieveAlert').show('fade');
+            	if(lesson >= 2)
+	            {
+		            $('#achieveAlert').show('fade');
 
-                setTimeout(function(){
-                    $('#achieveAlert').hide('fade');
-                }, 10000);
+		            setTimeout(function ()
+		            {
+			            $('#achieveAlert').hide('fade');
+		            }, 10000);
+	            }
             });
         });
 
@@ -718,14 +702,12 @@
 
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/docs.min.js"></script>
-    <script src="js/lib/socket.io.min.js"></script>
     <script src="js/lib/ie10-viewport-bug-workaround.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script src="js/lib/watson-speech.js"></script>
 
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     <script src="js/update_ui.js"></script>
-    <script src="js/socket.js"></script>
     <script src="js/common.js"></script>
     <script src="js/api.js"></script>
     <script src="js/conversation.js"></script>
