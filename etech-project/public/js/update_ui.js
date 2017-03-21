@@ -95,7 +95,8 @@ function progressLesson()
 			break;
 		case 1:
 			button.html('End Lesson');
-			lessonSession.find('.modal-dialog .modal-content .modal-body').html('Lol');
+			lessonSession.find('.modal-dialog .modal-content .modal-body').html($('#lessonTest'));
+			$('#lessonTest').show();
 			break;
 		case 2:
 			button.attr('data-dismiss', 'modal');

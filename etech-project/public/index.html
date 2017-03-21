@@ -497,6 +497,19 @@
                 </div>
             </div>
 
+            <div id="lessonTest" style="display: none">
+                <h3>Exercise</h3>
+                <p><strong>Question:</strong> How do you write 68,542 in words?</p>
+                <div class="radio">
+                    <label><input type="radio">Sixty eight thousand, five hundred and forty two</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio">Sixty eight thousand, five hundred and fourty two</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio">Sixty eight tausend, five hundert and forty two</label>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -686,9 +699,16 @@
 
         $(document).ready(function(){
             $('#btnEndLesson').click(function(){
-            	if(lesson >= 2)
+            	if(lesson > 2)
 	            {
 		            $('#achieveAlert').show('fade');
+
+		            fields = document.getElementsByClassName('progress-bar');
+		            for (let i = 0; i < fields.length; i++)
+		            {
+		            	let width = parseInt(fields[i].style.width);
+			            fields[i].style.width = (width + 25) + '%';
+		            }
 
 		            setTimeout(function ()
 		            {
