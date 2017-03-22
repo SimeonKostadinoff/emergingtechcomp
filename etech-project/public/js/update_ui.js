@@ -26,6 +26,11 @@ let UpdateUI = (function ($)
 	const open_profile = 'open_profile';
 	const open_commands = 'open_commands';
 	const open_achievements = 'open_achievements';
+	const begin_lesson = 'begin_lesson';
+	const next_section = 'next_section';
+	const end_lesson = 'end_lesson';
+	const say_goodbye = 'goodbye';
+
 	return {
 		resultUpdateUI: resultUpdateUI
 	};
@@ -43,6 +48,14 @@ let UpdateUI = (function ($)
 				return openCommands;
 			case open_achievements:
 				return openAchievements;
+			case begin_lesson:
+				return openCurrentLesson;
+			case next_section:
+				return nextSection;
+			case end_lesson:
+				return endLesson;
+			case say_goodbye:
+				return goodbye;
 			default:
 				return 'No match';
 		}
@@ -76,6 +89,37 @@ let UpdateUI = (function ($)
 	{
 		$('#achieveModal').modal('show');
 		let request = 'Here are your achievements, it seems like you are doing quite well!';
+		Api.speak(request);
+		//responsiveVoice.speak(request);
+	}
+	function openCurrentLesson()
+	{
+		$('#lessonSession').modal('show');
+		let request = 'Lesson 1: Whole numbers! Writing whole numbers as words! Each digit in a number has a place value. It shows the position of a digit in a number. The first few place values are shown in the table. Check the example below to help you further!';
+		Api.speak(request);
+		//responsiveVoice.speak(request);
+	}
+
+	function nextSection()
+	{
+		$('#btnEndLesson').click();
+		let request = 'Here is the next section of this lesson.';
+		Api.speak(request);
+		//responsiveVoice.speak(request);
+	}
+
+	function endLesson()
+	{
+		$('#lessonModal').modal('hide');
+		$('#btnEndLesson').click();
+		let request = 'You finished this lesson! Congratulations. You earned an achievement! See it in your profile or the achievements screen.';
+		Api.speak(request);
+		//responsiveVoice.speak(request);
+	}
+	function goodbye()
+	{
+		stopListening = false;
+		let request = 'Goodbye, John! See you soon!';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
 	}

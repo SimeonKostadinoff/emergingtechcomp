@@ -1,10 +1,15 @@
 let Otoken = null;
+let stopListening = false;
 
 fetchToken();
 $('#microphoneIcon').click(function(){
+    
+    if(!stopListening){
+        stopListening = true;
+        const beginning = 'Hey! I am Ignis - your virtual personal assistant. Ask me anything you would like to know about your studies.'
+        Api.speak(beginning);
+    }
     //handleMicStream(Otoken);
-    const beginning = 'Hey! I am Ignis - your virtual personal assistant. Ask me anything you would like to know about your studies.'
-    Api.speak(beginning);
 });
 function handleMicStream(){
     // fetch('/api/speech-to-text/token')
@@ -26,6 +31,8 @@ function handleMicStream(){
             stream.on('error', function(err) {
                 console.log(err);
             });
+
+
 
     //     }).catch(function(error) {
     //         console.log(error);
@@ -51,7 +58,10 @@ function fetchToken(){
 
 $('#audio').bind("ended", function(){
     setTimeout(function(){
-            console.log('Start new one');
-            handleMicStream();
+        console.log('Stop listening:', stopListening)
+            if(stopListening){
+                console.log('Start new one');
+                handleMicStream();
+            }
     }, 500);
 });
