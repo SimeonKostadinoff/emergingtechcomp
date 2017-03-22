@@ -9,14 +9,14 @@ exports.voice = 'en-US_MichaelVoice';
 // en-US_MichaelVoice (the default)
 
 // Credentials for Watson Speech to Text service
-exports.STTUsername = '7e51a3fd-3f6a-40ad-99ed-c9574c38f9b3';
-exports.STTPassword = 'r6SmfVEK1jgW';
+exports.STTUsername = 'dff411b1-80bf-4101-9065-25295a829be2';
+exports.STTPassword = '8vEO0gajnFQ4';
 
 // Credentials for Watson Conversation service
-exports.ConUsername = 'c1155938-96e4-42c8-b58b-b644b0f36f10';
-exports.ConPassword = 'moHzLaV0fDuw';
-exports.ConWorkspace = '64ec513d-dfca-403a-a0f9-d7f798059228';
+exports.ConUsername = '5a72a1ed-f999-4fc1-8d38-08b16efc472d';
+exports.ConPassword = 'MmNkXeAd6d6g';
+exports.ConWorkspace = '811dcb7a-f06e-4140-abd5-60ecd919622b';
 
 //Credentials for Watson Text to Speech service
-exports.TTSUsername = '650dc7a2-fa38-41f3-aed0-b52d9d30b8ed';
-exports.TTSPassword = 'iMYQ1pmVTs71';
+exports.TTSUsername = 'b6644899-b25f-47a1-9308-7677e953702b';
+exports.TTSPassword = 'cZaiPe3LkWfR';

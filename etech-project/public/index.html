@@ -697,26 +697,26 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function(){
-            $('#btnEndLesson').click(function(){
-            	if(lesson > 2)
-	            {
-		            $('#achieveAlert').show('fade');
+        // $(document).ready(function(){
+        //     $('#btnEndLesson').click(function(){
+        //     	if(lesson > 2)
+	    //         {
+		//             $('#achieveAlert').show('fade');
 
-		            fields = document.getElementsByClassName('progress-bar');
-		            for (let i = 0; i < fields.length; i++)
-		            {
-		            	let width = parseInt(fields[i].style.width);
-			            fields[i].style.width = (width + 25) + '%';
-		            }
+		//             fields = document.getElementsByClassName('progress-bar');
+		//             for (let i = 0; i < fields.length; i++)
+		//             {
+		//             	let width = parseInt(fields[i].style.width);
+		// 	            fields[i].style.width = (width + 25) + '%';
+		//             }
 
-		            setTimeout(function ()
-		            {
-			            $('#achieveAlert').hide('fade');
-		            }, 10000);
-	            }
-            });
-        });
+		//             setTimeout(function ()
+		//             {
+		// 	            $('#achieveAlert').hide('fade');
+		//             }, 10000);
+	    //         }
+        //     });
+        // });
 
     </script>
 

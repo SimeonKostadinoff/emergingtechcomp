@@ -1,8 +1,9 @@
 ---
 applications:
 - services:
-  - etech-conversation-service
+  - etech-conversation
   - etech-text-to-speech
+  - etech-speech-to-text
   name: Ignis
   command: npm start
   path: .

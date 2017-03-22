@@ -102,7 +102,8 @@ let UpdateUI = (function ($)
 
 	function nextSection()
 	{
-		$('#btnEndLesson').click();
+		//$('#btnEndLesson').click();
+		progressLesson();
 		let request = 'Here is the next section of this lesson.';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
@@ -111,7 +112,21 @@ let UpdateUI = (function ($)
 	function endLesson()
 	{
 		$('#lessonModal').modal('hide');
-		$('#btnEndLesson').click();
+		$('#lessonSession').modal('hide');
+		//$('#btnEndLesson').click();
+		$('#achieveAlert').show('fade');
+
+		fields = document.getElementsByClassName('progress-bar');
+		for (let i = 0; i < fields.length; i++)
+		{
+			let width = parseInt(fields[i].style.width);
+			fields[i].style.width = (width + 25) + '%';
+		}
+
+		setTimeout(function ()
+		{
+			$('#achieveAlert').hide('fade');
+		}, 10000);
 		let request = 'You finished this lesson! Congratulations. You earned an achievement! See it in your profile or the achievements screen.';
 		Api.speak(request);
 		//responsiveVoice.speak(request);
